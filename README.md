@@ -25,7 +25,7 @@ This tutorial demonstrates the interaction of a client application (Google Chrom
 ### Step 1 — Clone the files
 - Open Terminal/Command Prompt and type:
 ```
-$  git clone https://github.com/blackbaud/sky-api-tutorial-implicit-flow-chrome-extension
+$  git clone https://github.com/blackbaud/sky-api-tutorial-implicit-flow-chrome-extension.git
 ```
 
 ### Step 2 — Configure the extension
