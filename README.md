@@ -1,4 +1,4 @@
-# SKY API Tutorial: Backends For Frontend (BFF) Pattern
+# SKY API Tutorial: Implicit Flow
 
 ## Overview
 This tutorial demonstrates the interaction of a client application (Google Chrome extension) with the SKY API authorization service, using the [implicit flow](https://tools.ietf.org/html/rfc6749#section-1.3.2) (or implicit grant).
