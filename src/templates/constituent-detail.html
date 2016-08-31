@@ -1,0 +1,20 @@
+<div class="sky-api-constituent">
+  <div class="container">
+    <h2>Constituent Info</h2>
+    <table class="table">
+      {{# each constituent }}
+      <tr>
+        <th>
+          {{ @key }}
+        </th>
+        <td>
+          {{ this }}
+        </td>
+      </tr>
+      {{/ each }}
+    </table>
+    <p>
+      <a href="https://renxt.blackbaud.com/constituents/{{ constituent.id }}">View constituent record&rarr;</a>
+    </p>
+  </div>
+</div>
