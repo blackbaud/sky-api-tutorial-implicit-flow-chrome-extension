@@ -1,21 +1,21 @@
 {
-  "name": "sky-api-tutorial-implicit-flow",
+  "name": "sky-api-tutorial-implicit-flow-chrome-extension",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/http-server -a localhost -p 8000 -c-1"
+    "start": "http-server -a localhost -p 8000 -c-1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blackbaud/sky-api-tutorial-implicit-flow.git"
+    "url": "git+https://github.com/blackbaud/sky-api-tutorial-implicit-flow-chrome-extension.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/blackbaud/sky-api-tutorial-implicit-flow/issues"
+    "url": "https://github.com/blackbaud/sky-api-tutorial-implicit-flow-chrome-extension/issues"
   },
-  "homepage": "https://github.com/blackbaud/sky-api-tutorial-implicit-flow#readme",
+  "homepage": "https://github.com/blackbaud/sky-api-tutorial-implicit-flow-chrome-extension#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-concat-sourcemap": "^0.4.3",
