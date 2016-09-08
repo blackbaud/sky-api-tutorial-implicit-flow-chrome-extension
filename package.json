@@ -1,7 +1,7 @@
 {
   "name": "sky-api-tutorial-implicit-flow-chrome-extension",
   "version": "0.1.0",
-  "description": "",
+  "description": "This tutorial demonstrates the interaction of a client application (Google Chrome extension) with the SKY API authorization service, using the implicit flow (or implicit grant)",
   "main": "index.js",
   "scripts": {},
   "repository": {
