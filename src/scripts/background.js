@@ -124,9 +124,16 @@
           error: reason
         });
       }
-      return callback({
-        error: reason.error || reason.responseJSON.message || JSON.parse(reason.responseText)
-      });
+      console.log("ERROR:", reason);
+      try {
+        return callback({
+          error: reason.error || reason.responseJSON.message || JSON.parse(reason.responseText)
+        });
+      } catch(error) {
+        return callback({
+          error: error
+        });
+      }
     };
 
     switch (request.type) {

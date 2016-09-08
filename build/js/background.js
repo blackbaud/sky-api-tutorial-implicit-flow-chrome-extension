@@ -132,9 +132,16 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
           error: reason
         });
       }
-      return callback({
-        error: reason.error || reason.responseJSON.message || JSON.parse(reason.responseText)
-      });
+      console.log("ERROR:", reason);
+      try {
+        return callback({
+          error: reason.error || reason.responseJSON.message || JSON.parse(reason.responseText)
+        });
+      } catch(error) {
+        return callback({
+          error: error
+        });
+      }
     };
 
     switch (request.type) {
