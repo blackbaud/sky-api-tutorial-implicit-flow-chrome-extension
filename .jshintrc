@@ -1,3 +1,11 @@
 {
-  "predef": [ "window", "InboxSDK" ]
+  "browser": true,
+  "curly": true,
+  "devel": ["alert", "console"],
+  "eqeqeq": true,
+  "esversion": 6,
+  "forin": true,
+  "predef": ["$", "chrome", "Handlebars", "InboxSDK", "window", "YAML"],
+  "undef": true,
+  "unused": true
 }

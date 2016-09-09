@@ -1,6 +1,6 @@
 {
   "name": "sky-api-tutorial-bff-chrome-extension",
-  "description": "## Purpose",
+  "description": "This tutorial demonstrates the interaction of a client application (Google Chrome extension) with the SKY API authorization service, using the implicit flow (or implicit grant)",
   "main": "index.js",
   "authors": [
     "stevebrush <steve.brush@blackbaud.com>"

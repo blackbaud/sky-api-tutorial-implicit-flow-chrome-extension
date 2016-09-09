@@ -41,6 +41,7 @@ d.push(e),this.push(this.source.functionCall("container.invokePartial","",d))},a
 
     var config;
 
+
     function getConstituentByEmailAddress(emailAddress) {
         return new Promise(function (resolve, reject) {
             sendMessage('apiSearch', {
@@ -48,6 +49,7 @@ d.push(e),this.push(this.source.functionCall("container.invokePartial","",d))},a
             }).then(resolve).catch(reject);
         });
     }
+
 
     function init(sdk) {
         var showAlert;
@@ -129,7 +131,7 @@ d.push(e),this.push(this.source.functionCall("container.invokePartial","",d))},a
 
     // This method communicates with the background script.
     function sendMessage(type, message) {
-        return new Promise(function (resolve, reject) {
+        return new Promise(function (resolve) {
             chrome.runtime.sendMessage({
                 type: type,
                 message: message
@@ -138,13 +140,16 @@ d.push(e),this.push(this.source.functionCall("container.invokePartial","",d))},a
     }
 
     // Load dependencies and initialize the extension.
-    window.addEventListener("load", function load(event) {
-        console.log("Page loaded. Fetching configuration...");
-        sendMessage('getConfig').then(function (data) {
-            console.log("Extension configuration loaded. Installing SDK...");
-            config = data;
-            InboxSDK.load(config.CHROME_SDK_VERSION, config.CHROME_APP_ID).then(init);
-        });
+    window.addEventListener("load", function () {
+        window.setTimeout(function () {
+            console.log("Page loaded. Fetching configuration...");
+            sendMessage('getConfig').then(function (data) {
+                console.log("Extension configuration loaded...", data);
+                console.log("Installing SDK...");
+                config = data;
+                InboxSDK.load(config.CHROME_SDK_VERSION, config.CHROME_APP_ID).then(init);
+            });
+        }, 50);
     });
 }());
 
