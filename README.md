@@ -1,4 +1,4 @@
-# SKY API Tutorial: Implicit Flow
+# SKY API Tutorial: Implicit Flow - Chrome Extension
 
 ## Overview
 This tutorial demonstrates the interaction of a client application (Google Chrome extension) with the SKY API authorization service, using the [implicit flow](https://tools.ietf.org/html/rfc6749#section-1.3.2) (or implicit grant).
@@ -18,7 +18,7 @@ This tutorial demonstrates the interaction of a client application (Google Chrom
     - If you have not already done so, be sure to complete the [Getting started guide](https://apidocs.sky.blackbaud.com/docs/getting-started/). This will guide you through the process of registering for a Blackbaud developer account and requesting a subscription to an API product.
     - Once approved, your subscription will contain a **Primary Key** and a **Secondary Key**.  You can use either key as the subscription key value for the `bb-api-subscription-key` request header when making calls to the API.
     - You can view your subscription keys on your [Blackbaud Developer Profile](https://developer.sky.blackbaud.com/developer).
-- **A Blackbaud Developer Application ID and Application Secret**
+- **A Blackbaud Developer Application ID**
     - [Register your application](https://developerapp.sky.blackbaud.com/applications) in order to obtain the **Application ID** (client ID) and **Application Secret** (client secret).
 
 
