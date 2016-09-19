@@ -135,7 +135,7 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
             try {
                 reason = reason.error || reason.responseJSON.message || JSON.parse(reason.responseText);
             } catch(error) {
-                reason = error;
+                reason = "Something bad happened. Please reload the page and try again.";
             }
             return callback({
                 error: reason
@@ -146,10 +146,11 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 
             // Make a request to the constituent search API.
             case 'apiSearch':
+                console.log("Attempting to find constituent record via email address...");
                 emailAddress = request.message.emailAddress;
                 checkAccessToken().then(function () {
                     getConstituentByEmailAddress(emailAddress).then(function (data) {
-                        console.log("StatusCode:", data);
+                        console.log("getConstituentByEmailAddress response:", data);
                         // The token has expired. Attempt to refresh.
                         if (data.statusCode === 401) {
                             getAccessToken().then(function () {
@@ -167,6 +168,7 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 
             // Get configuration YAML file.
             case 'getConfig':
+                console.log("Retrieving configuration from YAML file...");
                 http('GET',
                     chrome.runtime.getURL('config.yml')
                 ).then(function (data) {
@@ -178,6 +180,7 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 
             // Get the HTML file used to build the detail flyup.
             case 'getConstituentDetailTemplate':
+                console.log("Loading HTML template for constituent detail...");
                 http('GET',
                     chrome.runtime.getURL('src/templates/constituent-detail.html')
                 ).then(callback);
@@ -185,6 +188,7 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 
             // Unrecognized message type.
             default:
+                console.log("Unrecognized request to background script.");
                 callback({
                     error: 'Invalid message type.'
                 });

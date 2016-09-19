@@ -102,15 +102,13 @@
     }
 
     // Load dependencies and initialize the extension.
-    window.addEventListener("load", function () {
-        window.setTimeout(function () {
-            console.log("Page loaded. Fetching configuration...");
-            sendMessage('getConfig').then(function (data) {
-                console.log("Extension configuration loaded...", data);
-                console.log("Installing SDK...");
-                config = data;
-                InboxSDK.load(config.CHROME_SDK_VERSION, config.CHROME_APP_ID).then(init);
-            });
-        }, 50);
+    $(document).ready(function () {
+        console.log("Page loaded. Fetching configuration...");
+        sendMessage('getConfig').then(function (data) {
+            console.log("Extension configuration loaded...", data);
+            console.log("Installing SDK...");
+            config = data;
+            InboxSDK.load(config.CHROME_SDK_VERSION, config.CHROME_APP_ID).then(init);
+        });
     });
 }());
