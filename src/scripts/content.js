@@ -58,6 +58,8 @@
                             // Attempt to match the email address with a SKY API constituent record.
                             getConstituentByEmailAddress(contact.emailAddress).then(function (data) {
 
+                                console.log("Constituent Search response:", data);
+
                                 // Something bad happened with the API.
                                 if (data.error) {
                                     return showAlert(data.error);

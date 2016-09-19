@@ -133,7 +133,7 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
             }
             console.log("MESSAGE ERROR:", JSON.stringify(reason));
             try {
-                reason = reason.error || reason.responseJSON.message || JSON.parse(reason.responseText);
+                reason = reason.message || reason.error || reason.responseJSON.message || JSON.parse(reason.responseText);
             } catch(error) {
                 reason = "Something bad happened. Please reload the page and try again.";
             }
@@ -151,8 +151,10 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
                 checkAccessToken().then(function () {
                     getConstituentByEmailAddress(emailAddress).then(function (data) {
                         console.log("getConstituentByEmailAddress response:", data);
+                        
                         // The token has expired. Attempt to refresh.
-                        if (data.statusCode === 401) {
+                        if (data.responseText && data.responseText.statusCode === 401) {
+                            console.log("Token has expired.");
                             getAccessToken().then(function () {
                                 getConstituentByEmailAddress(emailAddress).then(callback).catch(parseError);
                             }).catch(parseError);
@@ -160,6 +162,7 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 
                         // All is well, return the constituent data.
                         else {
+                            console.log("Token valid. Passing data:", data);
                             callback(data);
                         }
                     }).catch(parseError);
