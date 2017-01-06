@@ -70,7 +70,7 @@
             http('GET',
                 'https://api.sky.blackbaud.com/constituent/v1/constituents/search',
                 {
-                    'searchText': emailAddress
+                    'search_text': emailAddress
                 },
                 {
                     'bb-api-subscription-key': config.SKY_API_SUBSCRIPTION_KEY,
